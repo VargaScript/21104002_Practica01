@@ -4,12 +4,18 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
+console.log("Bug");
+
 app.use(bodyParser.json());
 
 let tasks = [
   { id: 1, title: "Task 1", description: "Do something" },
   { id: 2, title: "Task 2", description: "Do something else" },
 ];
+
+app.get("/issue", (req, res) => {
+  res.json(issue);
+});
 
 // Get all tasks
 app.get("/tasks", (req, res) => {
