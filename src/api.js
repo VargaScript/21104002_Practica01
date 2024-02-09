@@ -1,11 +1,10 @@
-const app = require("./api");
-const port = 3000;
+const express = require("express");
+const bodyParser = require("body-parser");
+const taskRepository = require("./taskRepository");
 
-console.log("Bug");
+const app = express();
 
 app.use(bodyParser.json());
-
-console.log("Hola Mundo");
 
 let tasks = [
   { id: 1, title: "Task 1", description: "Do something" },
@@ -63,6 +62,4 @@ app.delete("/tasks/:id", (req, res) => {
   res.sendStatus(204);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+module.exports = app;
