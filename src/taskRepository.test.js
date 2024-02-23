@@ -2,7 +2,7 @@ const tasksRepository = require("./taskRepository");
 
 describe("pruebas", () => {
   test("Get all tasks", () => {
-    //Arrange
+    // Arrange
     let tasks = [];
     // Act
     tasks = tasksRepository.getAll();
@@ -14,7 +14,7 @@ describe("pruebas", () => {
 
 test("Get one task by id", () => {
   // Arrage
-  let tasks = {};
+  const tasks = {};
   // Act
   task = tasksRepository.getById(1);
   // Assert
