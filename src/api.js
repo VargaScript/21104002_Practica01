@@ -1,10 +1,10 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const taskRepository = require("./taskRepository");
+import express from "express";
+import { json } from "body-parser";
+import taskRepository from "./taskRepository";
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(json());
 
 let tasks = [
   { id: 1, title: "Task 1", description: "Do something" },
@@ -12,7 +12,7 @@ let tasks = [
 ];
 
 app.get("/issue", (req, res) => {
-  res.json(issue);
+  res.json("log");
 });
 
 // Get all tasks
@@ -42,10 +42,10 @@ app.post("/tasks", (req, res) => {
 
 // Update a task
 app.put("/tasks/:id", (req, res) => {
-  const taskId = parseInt(req.params.id);
-  const updatedTask = req.body;
+  // const taskId = parseInt(req.params.id);
+  // const updatedTask = req.body;
   const task = taskRepository.updateTask();
-  const index = tasks.findIndex((t) => t.id === taskId);
+  //  const index = tasks.findIndex((t) => t.id === taskId);
 
   if (task != null) {
     res.json(tasks);
@@ -62,4 +62,4 @@ app.delete("/tasks/:id", (req, res) => {
   res.sendStatus(204);
 });
 
-module.exports = app;
+export default app;

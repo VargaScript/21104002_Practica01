@@ -1,6 +1,6 @@
-const app = require("./api");
+import { listen } from "./api";
 const port = 3000;
 
-app.listen(port, () => {
+listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
